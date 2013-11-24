@@ -38,31 +38,18 @@
   function getFriendStat(){
     if(!friendList){
       var friendList = new Array();
-      friendList = FB.api('/me/friends', 'get', function(response) {
-        if(response.data) {
-            $.each(response.data,function(index,friend) {
-                friendList.push(friend);
-                console.log(friend.name);
-            });
-        } else {
-            console.log("Error!");
-        }
-        shuffler(friendList);});
+      var friendList = FB.api('/me/friends', 'get');
+      shuffler(friendList);
       var number_friends = friendList.length;
       var count = 0;
       var nameHolder = document.getElementById("name");
 
     }
     if(count == number_friends){
-      friendList = FB.api('/me/friends', 'get', function(response) {
-        if(response.data) {
-            $.each(response.data,function(index,friend) {
-                friendList.push(friend);
-                console.log(friend.name);
-            });
+      friendList = FB.api('/me/friends');
       count = 0;
     }});
-    nameHolder.innerHTML = friendList[count];
+    nameHolder.innerHTML = balh[count];
     count++;
   
 }
