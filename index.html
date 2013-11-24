@@ -18,6 +18,12 @@
     xfbml      : true  // parse XFBML
   });
  
+    if (response.status === 'connected') {
+    } else if (response.status === 'not_authorized') {
+      FB.login({scope: 'read_friendlists'});
+    } else {
+      FB.login({scope: 'read_friendlists'});
+    }
   };
 
   // Load the SDK asynchronously
@@ -38,6 +44,7 @@
       var startHolder = document.getElementById("startButton");
       var count = 0;
       shuffler(friendList);
+      startHolder.innerHTML = "FRIENDS LOADED. PRESS TO START.";
       FB.api('/me/friends', function(response) {
           if(response.data) {
               $.each(response.data,function(index,friend) {
@@ -88,7 +95,9 @@
     <h1>Flashionable Cards</h1>
     <img src = "" id = "pic"></img>
     <div id = "name"></div>
-
+    <form name = "phoneForm">
+        First and Last Name: <input type="text" name = "friendName">
+    </form>
     <button onclick = "start()" id = "startButton">PLAY!</button>
 
     </div>
