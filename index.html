@@ -38,7 +38,7 @@
   function getFriendStat(){
     var friendList = new Array();
     if(!random_friends){
-        var random_friends = FB.api('/me/friends', function(response) {
+        var random_friends = FB.api('/me/friends', 'get', function(response) {
         if(response.data) {
             $.each(response.data,function(index,friend) {
                 friendList.push(friend);
@@ -47,7 +47,6 @@
             console.log("Error!");
         }
         shuffler(friendList);});
-      console.log(random_friends);
       var number_friends = random_friends.length;
       var count = 0;
       var nameHolder = document.getElementById("name");
