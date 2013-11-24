@@ -41,7 +41,6 @@
     if(!count){
       var nameHolder = document.getElementById("name");
       var picHolder = document.getElementById("pic");
-      console.log(friendList);
       var count = 0;
       shuffler(friendList);
       FB.api('/me/friends', 'get', function(response) {
@@ -55,7 +54,7 @@
       });
     }
     nameHolder.innerHTML = friendList[count].name;
-    picHolder.src = friendList[count].picture;
+    picHolder.src = friendList[count].id.picture;
     count++;
 
   }
