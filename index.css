@@ -6,6 +6,10 @@
 	padding: 2px;
 }
 
+h1{
+	font-family: 'Lobster', cursive;
+}
+
 #startButton {
 	-moz-box-shadow:inset 0px 1px 0px 0px #caefab;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #caefab;
