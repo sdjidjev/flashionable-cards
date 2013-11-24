@@ -41,7 +41,6 @@
   function start() {
     if(!nameHolder){
       var nameHolder = document.getElementById("name");
-      var formHolder = document.getElementById("fForm");
       var picHolder = document.getElementById("pic");
       shuffler(friendList);
       FB.api('/me/friends', function(response) {
@@ -54,6 +53,8 @@
           }
       });
     }
+    var formHolder = document.getElementById("fForm");
+
     formHolder.style.display = block;
     console.log("asfd");
     var startHolder = document.getElementById("nextButton");
