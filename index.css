@@ -12,6 +12,7 @@ h1{
 }
 
 #startButton {
+	margin: 5px;
 	-moz-box-shadow:inset 0px 1px 0px 0px #caefab;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #caefab;
 	box-shadow:inset 0px 1px 0px 0px #caefab;
