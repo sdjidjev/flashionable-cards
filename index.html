@@ -66,15 +66,15 @@
     FB.api('/me', function(response) {
       console.log('Good to see you, ' + response.name + '.');
     });
-    FB.api('/me/friends', function(response) {
-        if(response.data) {
-            $.each(response.data,function(index,friend) {
-                //friendList.push(friend.id);
-            });
-        } else {
-            console.log("Error!");
-        }
-    });
+    // FB.api('/me/friends', function(response) {
+    //     if(response.data) {
+    //         $.each(response.data,function(index,friend) {
+    //             //friendList.push(friend.id);
+    //         });
+    //     } else {
+    //         console.log("Error!");
+    //     }
+    // });
     //console.log(friendList);
     //shuffler(friendList);
     //console.log(friendList)
