@@ -40,22 +40,20 @@
   function testAPI() {
     var nameHolder = document.getElementById("name");
     var friendList = new Array();
-    //console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', function(response) {
-      //console.log('Good to see you, ' + response.name + '.');
-    });
     FB.api('/me/friends', function(response) {
         if(response.data) {
             $.each(response.data,function(index,friend) {
-                console.log(String(friend.id));
+                //console.log(String(friend.id));
                 friendList.push(String(friend.id));
+                console.log(friendList);
             });
         } else {
             console.log("Error!");
         }
     });
-    console.log(friendList);
+    //console.log(friendList);
   }
+
 
 </script>
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
