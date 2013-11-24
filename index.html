@@ -10,7 +10,7 @@
   <div id="fb-root"></div>
 <script>
   var friendList = new Array();
-  window.fbAsyncInit = function(response) {
+  window.fbAsyncInit = function() {
   FB.init({
     appId      : '1431720523708632',
     status     : true, // check login status
@@ -18,12 +18,6 @@
     xfbml      : true  // parse XFBML
   });
  
-    if (response.status === 'connected') {
-    } else if (response.status === 'not_authorized') {
-      FB.login({scope: 'read_friendlists'});
-    } else {
-      FB.login({scope: 'read_friendlists'});
-    }
   };
 
   // Load the SDK asynchronously
