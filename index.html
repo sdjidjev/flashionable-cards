@@ -16,7 +16,7 @@
     xfbml      : true  // parse XFBML
   });
  
-  function(response){
+FB.Event.subscribe('auth.authResponseChange', function(response) {
 
    if (response.status === 'connected') {
       $('#startButton').show();  
@@ -30,7 +30,7 @@
       console.log('off2');
       FB.login({scope: 'read_friendlists'});
     }
-  };
+  )};
 
   // Load the SDK asynchronously
   (function(d){
