@@ -55,7 +55,13 @@
       });
     }
     else{
-      checkFunction();
+      var nameData = document.friendForm.friendName.value;
+      if(nameData!= friendList[count-1].name){
+        console.log("you're wrong!");
+      }
+      else{
+        console.log("You're right!");
+      }
     }
     startHolder.innerHTML = "CHECK";
     picHolder.src = "https://graph.facebook.com/"+friendList[count].id+"/picture?width=300&height=300";
@@ -63,16 +69,6 @@
     picHolder.style.height = "200px";
     count++;
 
-  }
-
-  var checkFunction = function checker(){
-    var nameData = document.friendForm.friendName.value;
-    if(nameData!= friendList[count-1].name){
-      console.log("you're wrong!");
-    }
-    else{
-      console.log("You're right!");
-    }
   }
 
   function shuffler(array){
