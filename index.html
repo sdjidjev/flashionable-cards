@@ -44,11 +44,12 @@
             $.each(response.data,function(index,friend) {
                 friendList.push(friend);
             });
+                    return friendList;
+
         } else {
             console.log("Error!");
         }
         shuffler(friendList);
-        return friendList;
     });
   }
   
