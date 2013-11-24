@@ -39,6 +39,7 @@
   // This testAPI() function is only called in those cases. 
   function testAPI() {
     var nameHolder = document.getElementById("name");
+    var friendList = [];
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
       console.log('Good to see you, ' + response.name + '.');
@@ -46,8 +47,8 @@
     FB.api('/me/friends', function(response) {
         if(response.data) {
             $.each(response.data,function(index,friend) {
-                console.log(friend.name);
-                nameHolder.innerHTML = friend.name;
+                console.log(friend.id);
+                friendList.push(friend.id);
             });
         } else {
             console.log("Error!");
