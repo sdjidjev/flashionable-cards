@@ -56,6 +56,8 @@
     startHolder.innerHTML = "NEXT";
     nameHolder.innerHTML = friendList[count].name;
     picHolder.src = "https://graph.facebook.com/"+friendList[count].id+"/picture?width=300&height=300";
+    picHolder.width = "200px";
+    picHolder.height = "200px";
     count++;
 
   }
@@ -87,9 +89,9 @@
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <div align=center>
     <h1>Hello, world!</h1>
-    <button onclick = "start()" id = "startButton">PLAY!</button>
-    <img src = "" width="200" height = "200"id = "pic"></img>
+    <img src = "" id = "pic"></img>
     <div id = "name"></div>
+    <button onclick = "start()" id = "startButton">PLAY!</button>
     </div>
     <fb:login-button show-faces="true" id = "fb" width="200" max-rows="1"></fb:login-button>
   </body>
