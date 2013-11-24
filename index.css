@@ -63,6 +63,9 @@ h1{
 	display: none;
 }
 
+#fForm{
+	display:none;
+}
 body{
 	background-color: #F0FFF0;
 }

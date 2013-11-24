@@ -41,6 +41,7 @@
   function start() {
     if(!nameHolder){
       var nameHolder = document.getElementById("name");
+      var formHolder = document.getElementById("fForm");
       var picHolder = document.getElementById("pic");
       shuffler(friendList);
       FB.api('/me/friends', function(response) {
@@ -53,6 +54,7 @@
           }
       });
     }
+    formHolder.style.display = block;
     console.log("asfd");
     var startHolder = document.getElementById("nextButton");
     var checkHolder = document.getElementById("checkButton");
@@ -116,7 +118,7 @@
     <div id = "name"></div>
     <button onclick = "start()" class="startButton" id="nextButton">PLAY!</button>
     <button onclick="checker()" class="startButton" id="checkButton">check</button>
-    <form name = "friendForm">
+    <form name = "friendForm" id = "fForm">
         First and Last Name: <input type="text" name = "friendName">
     </form>
     <div id = "areyouright"></div>
