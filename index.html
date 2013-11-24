@@ -44,7 +44,6 @@
       var startHolder = document.getElementById("startButton");
       var count = 0;
       shuffler(friendList);
-      startHolder.innerHTML = "FRIENDS LOADED. PRESS TO START.";
       FB.api('/me/friends', function(response) {
           if(response.data) {
               $.each(response.data,function(index,friend) {
@@ -55,14 +54,12 @@
           }
       });
     }
-    else{
-      startHolder.innerHTML = "CHECK";
-      nameHolder.innerHTML = friendList[count].name;
-      picHolder.src = "https://graph.facebook.com/"+friendList[count].id+"/picture?width=300&height=300";
-      picHolder.style.width = "300px";
-      picHolder.style.height = "300px";
-      count++;
-    }
+    startHolder.innerHTML = "CHECK";
+    nameHolder.innerHTML = friendList[count].name;
+    picHolder.src = "https://graph.facebook.com/"+friendList[count].id+"/picture?width=300&height=300";
+    picHolder.style.width = "200px";
+    picHolder.style.height = "200px";
+    count++;
 
   }
 
@@ -97,8 +94,7 @@
     <div id = "name"></div>
     <form name = "phoneForm">
         First and Last Name: <input type="text" name = "friendName">
-    </form>
-    <button onclick = "start()" id = "startButton">PLAY!</button>
+    </form><button onclick = "start()" id = "startButton">PLAY!</button>
 
     </div>
     <fb:login-button show-faces="true" id = "fb" width="200" max-rows="1"></fb:login-button>
