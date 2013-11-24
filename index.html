@@ -38,6 +38,7 @@
   // Here we run a very simple test of the Graph API after login is successful. 
   // This testAPI() function is only called in those cases. 
   function testAPI() {
+    var nameHolder = document.getElementById("name");
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
       console.log('Good to see you, ' + response.name + '.');
@@ -45,10 +46,11 @@
     FB.api('/me/friends', function(response) {
         if(response.data) {
             $.each(response.data,function(index,friend) {
-                alert(friend.name + ' has id:' + friend.id);
+                console.log(friend.name);
+                nameHolder.innerHTML = friend.name;
             });
         } else {
-            alert("Error!");
+            console.log("Error!");
         }
     });
     console.log(myList.members);
@@ -56,6 +58,7 @@
 </script>
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <h1>Hello, world!</h1>
+    <div id = "name"></div>
     <fb:login-button show-faces="true" width="200" max-rows="1"></fb:login-button>
   </body>
 </html>
