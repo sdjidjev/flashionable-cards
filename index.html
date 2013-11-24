@@ -10,8 +10,6 @@
   <div id="fb-root"></div>
 <script>
   var friendList = new Array();
-  var startHolder = document.getElementById("nextButton");
-  var checkHolder = document.getElementById("checkButton");
   var count = 0;
   window.fbAsyncInit = function() {
   FB.init({
@@ -69,6 +67,8 @@
   }
 
   function checker(){
+    var startHolder = document.getElementById("nextButton");
+    var checkHolder = document.getElementById("checkButton");
     checkHolder.style.display = "none";
     startHolder.style.display = "block";
     var nameData = document.friendForm.friendName.value;
