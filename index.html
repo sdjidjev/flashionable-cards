@@ -16,14 +16,12 @@
     xfbml      : true  // parse XFBML
   });
  
-  FB.Event.subscribe('auth.authResponseChange', function(response) {
     if (response.status === 'connected') {
     } else if (response.status === 'not_authorized') {
       FB.login({scope: 'read_friendlists,friends_status'});
     } else {
       FB.login({scope: 'read_friendlists,friends_status'});
     }
-  });
   };
 
   // Load the SDK asynchronously
