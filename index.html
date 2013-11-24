@@ -55,7 +55,7 @@
       });
     }
     else{
-      checker;
+      checkFunction;
     }
     startHolder.innerHTML = "CHECK";
     picHolder.src = "https://graph.facebook.com/"+friendList[count].id+"/picture?width=300&height=300";
@@ -65,7 +65,7 @@
 
   }
 
-  function checker(){
+  checkFunction = function checker(){
     var nameData = document.friendForm.friendName.value;
     if(nameData!= friendList[count-1].name){
       console.log("you're wrong!");
