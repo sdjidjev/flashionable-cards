@@ -43,7 +43,7 @@
       var picHolder = document.getElementById("pic");
       var count = 0;
       shuffler(friendList);
-      FB.api('/me/friends', 'get', function(response) {
+      FB.api('/me/friends', function(response) {
           if(response.data) {
               $.each(response.data,function(index,friend) {
                   friendList.push(friend);
