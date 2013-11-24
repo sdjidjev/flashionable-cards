@@ -47,7 +47,7 @@
     FB.api('/me/friends', function(response) {
         if(response.data) {
             $.each(response.data,function(index,friend) {
-                //console.log(friend.id);
+                console.log(String(friend.id));
                 friendList.push(String(friend.id));
             });
         } else {
