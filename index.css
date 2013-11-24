@@ -62,3 +62,7 @@ h1{
 #checkButton{
 	display: none;
 }
+
+body{
+	background-color: #F0FFF0;
+}
