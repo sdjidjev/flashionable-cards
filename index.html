@@ -44,7 +44,7 @@
       var startHolder = document.getElementById("startButton");
       var count = 0;
       shuffler(friendList);
-      startHolder.innerHTML = "FRIENDS LOADED. PRESS TO START.";
+      startHolder.innerHTML = "LOADED";
       FB.api('/me/friends', function(response) {
           if(response.data) {
               $.each(response.data,function(index,friend) {
