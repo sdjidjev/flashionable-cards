@@ -42,7 +42,7 @@
     FB.api('/me', function(response) {
       console.log('Good to see you, ' + response.name + '.');
     });
-    var myList = FB.api('/me', 'get', 'read_friendlists');
+    var myList = FB.api('/me/friends', 'get');
     console.log(myList.members);
   }
 </script>
