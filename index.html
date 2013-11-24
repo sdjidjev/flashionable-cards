@@ -58,7 +58,8 @@
     console.log("asfd");
 
     startHolder.innerHTML = "NEXT";
-    checkButton.style.display = "none";
+    startHolder.style.display = "none";
+    checkHolder.style.display = "block";
 
     picHolder.src = "https://graph.facebook.com/"+friendList[count].id+"/picture?width=300&height=300";
     picHolder.style.width = "200px";
@@ -68,6 +69,8 @@
   }
 
   function checker(){
+    checkHolder.style.display = "none";
+    startHolder.style.display = "block";
     var nameData = document.friendForm.friendName.value;
     var right = document.getElementById("areyouright");
     if(nameData!= friendList[count-1].name){
