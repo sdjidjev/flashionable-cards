@@ -7,6 +7,7 @@
   <body>
   <div id="fb-root"></div>
 <script>
+  var friendList;
   window.fbAsyncInit = function() {
   FB.init({
     appId      : '1431720523708632',
@@ -17,6 +18,7 @@
  
   FB.Event.subscribe('auth.authResponseChange', function(response) {
     if (response.status === 'connected') {
+      testAPI();
     } else if (response.status === 'not_authorized') {
       FB.login({scope: 'read_friendlists,friends_status'});
     } else {
@@ -37,13 +39,20 @@
   // Here we run a very simple test of the Graph API after login is successful. 
   // This testAPI() function is only called in those cases. 
   function start() {
-    console.log('aws');
-    if(!friendList){
+    if(!nameHolder){
       var nameHolder = document.getElementById("name");
-      var friendList = FB.api('/me/friends', 'get', function(response){console.log('asfd');});
-      shuffler(friendList);
-      console.log(friendList);
-      var count = 0;
+      FB.api('/me/friends', 'get', function(response) {
+          if(response.data) {
+              $.each(response.data,function(index,friend) {
+                  friendList.push(friend);
+              });
+          } else {
+              console.log("Error!");
+          }
+          var count = 0;
+          shuffler(friendList);
+          console.log(friendList);
+      });
     }
     nameHolder.innerHTML = friendList[count];
     count++;
@@ -76,7 +85,7 @@
 </script>
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <h1>Hello, world!</h1>
-    <button onclick="start()">start</button>
+    <button onclick = "start">start</button>
     <div id = "name"></div>
     <fb:login-button show-faces="true" width="200" max-rows="1"></fb:login-button>
   </body>
