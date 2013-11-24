@@ -44,6 +44,7 @@
       var startHolder = document.getElementById("startButton");
       var count = 0;
       shuffler(friendList);
+      startHolder.innerHTML = "FRIENDS LOADED. PRESS TO START.";
       FB.api('/me/friends', function(response) {
           if(response.data) {
               $.each(response.data,function(index,friend) {
@@ -54,12 +55,14 @@
           }
       });
     }
-    startHolder.innerHTML = "NEXT";
-    nameHolder.innerHTML = friendList[count].name;
-    picHolder.src = "https://graph.facebook.com/"+friendList[count].id+"/picture?width=300&height=300";
-    picHolder.style.width = "200px";
-    picHolder.style.height = "200px";
-    count++;
+    else{
+      startHolder.innerHTML = "CHECK";
+      nameHolder.innerHTML = friendList[count].name;
+      picHolder.src = "https://graph.facebook.com/"+friendList[count].id+"/picture?width=300&height=300";
+      picHolder.style.width = "300px";
+      picHolder.style.height = "300px";
+      count++;
+    }
 
   }
 
@@ -92,7 +95,11 @@
     <h1>Flashionable Cards</h1>
     <img src = "" id = "pic"></img>
     <div id = "name"></div>
+    <form name = "phoneForm">
+        First and Last Name: <input type="text" name = "friendName">
+    </form>
     <button onclick = "start()" id = "startButton">PLAY!</button>
+
     </div>
     <fb:login-button show-faces="true" id = "fb" width="200" max-rows="1"></fb:login-button>
   </body>
