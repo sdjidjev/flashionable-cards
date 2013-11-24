@@ -40,14 +40,14 @@
   function testAPI() {
     var nameHolder = document.getElementById("name");
     var friendList = [];
-    console.log('Welcome!  Fetching your information.... ');
+    //console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
-      console.log('Good to see you, ' + response.name + '.');
+      //console.log('Good to see you, ' + response.name + '.');
     });
     FB.api('/me/friends', function(response) {
         if(response.data) {
             $.each(response.data,function(index,friend) {
-                console.log(friend.id);
+                //console.log(friend.id);
                 friendList.push(friend.id);
             });
         } else {
