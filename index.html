@@ -38,7 +38,7 @@
   function getFriendStat(){
     if(!friendList){
       var friendList = new Array();
-        FB.api('/me/friends', 'get', function(response) {
+      friendList = FB.api('/me/friends', 'get', function(response) {
         if(response.data) {
             $.each(response.data,function(index,friend) {
                 friendList.push(friend);
@@ -54,7 +54,12 @@
 
     }
     if(count == number_friends){
-      friendList = getFriends();
+      friendList = FB.api('/me/friends', 'get', function(response) {
+        if(response.data) {
+            $.each(response.data,function(index,friend) {
+                friendList.push(friend);
+                console.log(friend.name);
+            });;
       count = 0;
     }
     nameHolder.innerHTML = friendList[count];
