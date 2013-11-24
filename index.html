@@ -36,8 +36,7 @@
   }(document));
 
   function getFriendStat(){
-    var friendList = new Array();
-    if(!random_friends){
+    if(!friendList){
       var friendList = new Array();
         FB.api('/me/friends', 'get', function(response) {
         if(response.data) {
