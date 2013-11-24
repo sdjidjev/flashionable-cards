@@ -35,28 +35,6 @@
    ref.parentNode.insertBefore(js, ref);
   }(document));
 
-  function shuffler(shuffledList){
-      var currentIndex = shuffledList.length
-    , temporaryValue
-    , randomIndex
-    ;
-
-  // While there remain elements to shuffle...
-  while (0 !== currentIndex) {
-
-    // Pick a remaining element...
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
-
-    // And swap it with the current element.
-    temporaryValue = shuffledList[currentIndex];
-    shuffledList[currentIndex] = shuffledList[randomIndex];
-    shuffledList[randomIndex] = temporaryValue;
-  }
-
-  return shuffledList;
-  }
-
   // Here we run a very simple test of the Graph API after login is successful. 
   // This testAPI() function is only called in those cases. 
   function testAPI() {
