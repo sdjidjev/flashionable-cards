@@ -37,9 +37,10 @@
 
   // Here we run a very simple test of the Graph API after login is successful. 
   // This testAPI() function is only called in those cases. 
-  function getFriends() {    
+  function getFriends() {  
+    var friendList = new Array();
+  
     FB.api('/me/friends', function(response) {
-        var friendList = new Array();
         if(response.data) {
             $.each(response.data,function(index,friend) {
                 friendList.push(friend);
