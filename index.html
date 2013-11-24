@@ -39,7 +39,6 @@
   // Here we run a very simple test of the Graph API after login is successful. 
   // This testAPI() function is only called in those cases. 
   function start() {
-    var friendList;
     if(!nameHolder){
       var nameHolder = document.getElementById("name");
       var picHolder = document.getElementById("pic");
@@ -56,19 +55,24 @@
       });
     }
     console.log("asfd");
+
     var nameData = document.friendForm.friendName.value;
+
+    startHolder.innerHTML = "NEXT";
+    picHolder.src = "https://graph.facebook.com/"+friendList[count].id+"/picture?width=300&height=300";
+    picHolder.style.width = "200px";
+    picHolder.style.height = "200px";
+    count++;
+
+  }
+
+  function checker(){
     if(nameData!= friendList[count-1].name){
       console.log("you're wrong!");
     }
     else{
       console.log("You're right!");
     }
-    startHolder.innerHTML = "CHECK";
-    picHolder.src = "https://graph.facebook.com/"+friendList[count].id+"/picture?width=300&height=300";
-    picHolder.style.width = "200px";
-    picHolder.style.height = "200px";
-    count++;
-
   }
 
   function shuffler(array){
@@ -104,6 +108,7 @@
     <form name = "friendForm">
         First and Last Name: <input type="text" name = "friendName">
     </form>
+    <button onclick="check()">check</button>
     </div>
     <fb:login-button show-faces="true" id = "fb" width="200" max-rows="1"></fb:login-button>
   </body>
