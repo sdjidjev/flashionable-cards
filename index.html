@@ -43,6 +43,7 @@
       var nameHolder = document.getElementById("name");
       var picHolder = document.getElementById("pic");
       var startHolder = document.getElementById("startButton");
+      var checkHolder = document.getElementById("checkButton");
       shuffler(friendList);
       FB.api('/me/friends', function(response) {
           if(response.data) {
@@ -57,6 +58,8 @@
     console.log("asfd");
 
     startHolder.innerHTML = "NEXT";
+    checkButton.style.visibility = "hidden";
+
     picHolder.src = "https://graph.facebook.com/"+friendList[count].id+"/picture?width=300&height=300";
     picHolder.style.width = "200px";
     picHolder.style.height = "200px";
@@ -104,8 +107,8 @@
     <h1>Flashionable Cards</h1>
     <img src = "" id = "pic"></img>
     <div id = "name"></div>
-    <button onclick = "start()" class="startButton">PLAY!</button>
-    <button onclick="checker()" class="startButton">check</button>
+    <button onclick = "start()" class="startButton" id="nextbutton">PLAY!</button>
+    <button onclick="checker()" class="startButton" id="checkButton">check</button>
     <form name = "friendForm">
         First and Last Name: <input type="text" name = "friendName">
     </form>
