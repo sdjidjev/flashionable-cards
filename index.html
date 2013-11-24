@@ -18,11 +18,14 @@
  
     if (response.status === 'connected') {
       $('#startButton').show();  
+      console.log('on');
     } else if (response.status === 'not_authorized') {
       $('#startButton').hide(); 
+      console.log('off');
       FB.login({scope: 'read_friendlists'});
     } else {
       $('#startButton').hide(); 
+      console.log('off2');
       FB.login({scope: 'read_friendlists'});
     }
   };
