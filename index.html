@@ -16,7 +16,9 @@
     xfbml      : true  // parse XFBML
   });
  
-    if (response.status === 'connected') {
+  function(response){
+
+   if (response.status === 'connected') {
       $('#startButton').show();  
       console.log('on');
     } else if (response.status === 'not_authorized') {
