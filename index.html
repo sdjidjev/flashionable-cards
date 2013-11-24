@@ -39,24 +39,21 @@
   // This testAPI() function is only called in those cases. 
   function testAPI() {
     var nameHolder = document.getElementById("name");
-    //var friendList = [];
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
       console.log('Good to see you, ' + response.name + '.');
     });
-    // FB.api('/me/friends', function(response) {
-    //     if(response.data) {
-    //         $.each(response.data,function(index,friend) {
-    //             //friendList.push(friend.id);
-    //         });
-    //     } else {
-    //         console.log("Error!");
-    //     }
-    // });
-    //console.log(friendList);
-    //shuffler(friendList);
-    //console.log(friendList)
-    //console.log(myList.members);
+    FB.api('/me/friends', function(response) {
+        if(response.data) {
+            $.each(response.data,function(index,friend) {
+                console.log(friend.name);
+                nameHolder.innerHTML = friend.name;
+            });
+        } else {
+            console.log("Error!");
+        }
+    });
+    console.log(myList.members);
   }
 </script>
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
