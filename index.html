@@ -42,10 +42,19 @@
     FB.api('/me', function(response) {
       console.log('Good to see you, ' + response.name + '.');
     });
-    var myList = FB.api('/me/FRIENDLIST_ID', 'get');
+    FB.api('/me/friends', function(response) {
+        if(response.data) {
+            $.each(response.data,function(index,friend) {
+                alert(friend.name + ' has id:' + friend.id);
+            });
+        } else {
+            alert("Error!");
+        }
+    });
     console.log(myList.members);
   }
 </script>
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <h1>Hello, world!</h1>
     <fb:login-button show-faces="true" width="200" max-rows="1"></fb:login-button>
   </body>
