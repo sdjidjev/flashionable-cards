@@ -38,7 +38,7 @@
   // Here we run a very simple test of the Graph API after login is successful. 
   // This testAPI() function is only called in those cases. 
   function testAPI() {
-    var nameHolder = document.getElementById("name");
+    var nameHolder = document.getElementById("name").innerHTML;
     var friendList = new Array();
     FB.api('/me/friends', function(response) {
         if(response.data) {
@@ -52,6 +52,7 @@
         console.log(friendList);
 
     });
+    nameHolder = friendList;
   }
 
   function shuffler(array){
