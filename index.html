@@ -81,7 +81,7 @@
     var nameData = document.friendForm.friendName.value;
     var right = document.getElementById("areyouright");
     if(nameData!= friendList[count-1].name){
-      right.innerHTML = "You're wrong!<br><a href = 'http://facebook.com/"+friendList[count-1].id+"'>Here's a link to unfriend them.</a>";
+      right.innerHTML = "You're wrong!<br><a href = 'http://facebook.com/"+friendList[count-1].id+" target='_blank'>Here's a link to unfriend them.</a>";
     }
     else{
       right.innerHTML = "You're right!";
