@@ -35,10 +35,33 @@
    ref.parentNode.insertBefore(js, ref);
   }(document));
 
+  function shuffler(shuffledList){
+      var currentIndex = shuffledList.length
+    , temporaryValue
+    , randomIndex
+    ;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = shuffledList[currentIndex];
+    shuffledList[currentIndex] = shuffledList[randomIndex];
+    shuffledList[randomIndex] = temporaryValue;
+  }
+
+  return shuffledList;
+  }
+
   // Here we run a very simple test of the Graph API after login is successful. 
   // This testAPI() function is only called in those cases. 
   function testAPI() {
     var nameHolder = document.getElementById("name");
+    var friendList;
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
       console.log('Good to see you, ' + response.name + '.');
@@ -46,13 +69,15 @@
     FB.api('/me/friends', function(response) {
         if(response.data) {
             $.each(response.data,function(index,friend) {
-                console.log(friend.name);
-                nameHolder.innerHTML = friend.name;
+                friendList.push(friend.id);
             });
         } else {
             console.log("Error!");
         }
     });
+    console.log(friendList);
+    shuffler(friendList);
+    console.log(friendList)
     console.log(myList.members);
   }
 </script>
