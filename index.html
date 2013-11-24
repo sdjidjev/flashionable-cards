@@ -10,6 +10,8 @@
   <div id="fb-root"></div>
 <script>
   var friendList = new Array();
+  var startHolder = document.getElementById("nextButton");
+  var checkHolder = document.getElementById("checkButton");
   var count = 0;
   window.fbAsyncInit = function() {
   FB.init({
@@ -42,8 +44,6 @@
     if(!nameHolder){
       var nameHolder = document.getElementById("name");
       var picHolder = document.getElementById("pic");
-      var startHolder = document.getElementById("nextButton");
-      var checkHolder = document.getElementById("checkButton");
       shuffler(friendList);
       FB.api('/me/friends', function(response) {
           if(response.data) {
