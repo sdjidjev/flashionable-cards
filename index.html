@@ -42,6 +42,7 @@
         if(response.data) {
             $.each(response.data,function(index,friend) {
                 friendList.push(friend);
+                console.log(friend.name);
             });
         } else {
             console.log("Error!");
