@@ -41,7 +41,8 @@
     if(!count){
       var nameHolder = document.getElementById("name");
       console.log("AWEr");
-
+      var count = 0;
+      shuffler(friendList);
       FB.api('/me/friends', 'get', function(response) {
           if(response.data) {
               $.each(response.data,function(index,friend) {
@@ -51,8 +52,6 @@
               console.log("Error!");
           }
       });
-      var count = 0;
-      shuffler(friendList);
     }
     nameHolder.innerHTML = friendList[count];
     count++;
