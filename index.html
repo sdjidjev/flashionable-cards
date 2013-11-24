@@ -38,7 +38,7 @@
   function getFriendStat(){
     if(!friendList){
       var friendList = new Array();
-      var friendList = FB.api('/me/friends', 'get');
+      var friendList = FB.api('/me/friends');
       shuffler(friendList);
       var number_friends = friendList.length;
       var count = 0;
