@@ -10,6 +10,7 @@
   <div id="fb-root"></div>
 <script>
   var friendList = new Array();
+  var count = 0;
   window.fbAsyncInit = function() {
   FB.init({
     appId      : '1431720523708632',
@@ -42,7 +43,6 @@
       var nameHolder = document.getElementById("name");
       var picHolder = document.getElementById("pic");
       var startHolder = document.getElementById("startButton");
-      var count = 0;
       shuffler(friendList);
       FB.api('/me/friends', function(response) {
           if(response.data) {
@@ -54,8 +54,11 @@
           }
       });
     }
+    else{
+      checker();
+    }
     startHolder.innerHTML = "CHECK";
-    nameHolder.innerHTML = friendList[count].name;
+    nameHolder.innerHTML = ;
     picHolder.src = "https://graph.facebook.com/"+friendList[count].id+"/picture?width=300&height=300";
     picHolder.style.width = "200px";
     picHolder.style.height = "200px";
@@ -63,26 +66,36 @@
 
   }
 
-  function shuffler(array){
-    var currentIndex = array.length
-    , temporaryValue
-    , randomIndex
-    ;
-
-  // While there remain elements to shuffle...
-  while (0 !== currentIndex) {
-
-    // Pick a remaining element...
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
-
-    // And swap it with the current element.
-    temporaryValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
+  function checker(){
+    var nameData = document.friendForm.friendName.value;
+    if(nameData!= friendList[count].name){
+      console.log("you're wrong!");
+    }
+    else{
+      console.lot("You're right!");
+    }
   }
 
-  return array;
+  function shuffler(array){
+    var currentIndex = array.length
+      , temporaryValue
+      , randomIndex
+      ;
+
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+
+      // And swap it with the current element.
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+
+    return array;
   }
 
 
@@ -93,7 +106,7 @@
     <img src = "" id = "pic"></img>
     <div id = "name"></div>
     <button onclick = "start()" id = "startButton">PLAY!</button>
-    <form name = "phoneForm">
+    <form name = "friendForm">
         First and Last Name: <input type="text" name = "friendName">
     </form>
     </div>
