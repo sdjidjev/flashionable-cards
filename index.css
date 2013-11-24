@@ -11,6 +11,11 @@ h1{
 	font-size: 50px;
 }
 
+h2{
+	font-family: 'Lobster', cursive;
+	font-size: 20px;
+}
+
 .startButton {
 	margin: 5px;
 	-moz-box-shadow:inset 0px 1px 0px 0px #caefab;
