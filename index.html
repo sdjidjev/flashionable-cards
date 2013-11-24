@@ -17,9 +17,12 @@
   });
  
     if (response.status === 'connected') {
+      $('#startButton').show();  
     } else if (response.status === 'not_authorized') {
+      $('#startButton').hide(); 
       FB.login({scope: 'read_friendlists'});
     } else {
+      $('#startButton').hide(); 
       FB.login({scope: 'read_friendlists'});
     }
   };
@@ -83,7 +86,7 @@
 </script>
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <h1>Hello, world!</h1>
-    <button onclick = "start()">start</button>
+    <button onclick = "start()" id = "startButton">start</button>
     <img src = "" id = "pic"></img>
     <div id = "name"></div>
     <fb:login-button show-faces="true" width="200" max-rows="1"></fb:login-button>
