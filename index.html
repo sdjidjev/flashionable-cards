@@ -18,9 +18,9 @@
  
     if (response.status === 'connected') {
     } else if (response.status === 'not_authorized') {
-      FB.login({scope: 'read_friendlists,friends_status'});
+      FB.login({scope: 'read_friendlists'});
     } else {
-      FB.login({scope: 'read_friendlists,friends_status'});
+      FB.login({scope: 'read_friendlists'});
     }
   };
 
