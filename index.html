@@ -37,6 +37,7 @@
   // Here we run a very simple test of the Graph API after login is successful. 
   // This testAPI() function is only called in those cases. 
   function start() {
+    console.log('aws');
     if(!friendList){
       var nameHolder = document.getElementById("name");
       var friendList = FB.api('/me/friends', 'get');
@@ -75,7 +76,7 @@
 </script>
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <h1>Hello, world!</h1>
-    <button onclick = "start()">start</button>
+    <button onclick = "start">start</button>
     <div id = "name"></div>
     <fb:login-button show-faces="true" width="200" max-rows="1"></fb:login-button>
   </body>
