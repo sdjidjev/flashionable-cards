@@ -66,11 +66,12 @@
 
   function checker(){
     var nameData = document.friendForm.friendName.value;
+    var right = document.getElementById("areyouright");
     if(nameData!= friendList[count-1].name){
-      console.log("you're wrong!");
+      right.innerHTML = "You're wrong!";
     }
     else{
-      console.log("You're right!");
+      right.innerHTML = "You're right!";
     }
   }
 
@@ -108,6 +109,7 @@
         First and Last Name: <input type="text" name = "friendName">
     </form>
     <button onclick="checker()">check</button>
+    <div id = "areyouright"></div>
     </div>
     <fb:login-button show-faces="true" id = "fb" width="200" max-rows="1"></fb:login-button>
   </body>
