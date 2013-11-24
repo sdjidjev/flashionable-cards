@@ -21,7 +21,7 @@
     } else if (response.status === 'not_authorized') {
       FB.login({scope: 'read_friendlists,friends_status'});
     } else {
-      FB.login();
+      FB.login({scope: 'read_friendlists,friends_status'});
     }
   });
   };
@@ -42,6 +42,8 @@
     FB.api('/me', function(response) {
       console.log('Good to see you, ' + response.name + '.');
     });
+    var myList = FB.api('/me', 'get', 'read_friendlists');
+    console.log(myList.members);
   }
 </script>
     <h1>Hello, world!</h1>
