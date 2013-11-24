@@ -35,12 +35,10 @@
    ref.parentNode.insertBefore(js, ref);
   }(document));
 
-  // Here we run a very simple test of the Graph API after login is successful. 
-  // This testAPI() function is only called in those cases. 
-  function getFriends() {  
+  function getFriendStat(){
     var friendList = new Array();
-  
-    FB.api('/me/friends', function(response) {
+    if(!random_friends){
+        var random_friends = FB.api('/me/friends', function(response) {
         if(response.data) {
             $.each(response.data,function(index,friend) {
                 friendList.push(friend);
@@ -48,14 +46,7 @@
         } else {
             console.log("Error!");
         }
-        shuffler(friendList);
-
-    });
-  }
-  
-  function getFriendStat(){
-    if(!random_friends){
-      var random_friends = getFriends();
+        shuffler(friendList);});
       console.log(random_friends);
       var number_friends = random_friends.length;
       var count = 0;
