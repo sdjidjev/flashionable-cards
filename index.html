@@ -35,9 +35,7 @@
    js.src = "//connect.facebook.net/en_US/all.js";
    ref.parentNode.insertBefore(js, ref);
   }(document));
-
-  // Here we run a very simple test of the Graph API after login is successful. 
-  // This testAPI() function is only called in those cases. 
+ 
   function start() {
     if(!nameHolder){
       var nameHolder = document.getElementById("name");
@@ -65,7 +63,7 @@
     startHolder.innerHTML = "NEXT";
     startHolder.style.display = "none";
     checkHolder.style.display = "block";
-
+    console.log(count);
     picHolder.src = "https://graph.facebook.com/"+friendList[count].id+"/picture?width=300&height=300";
     picHolder.style.width = "200px";
     picHolder.style.height = "200px";
