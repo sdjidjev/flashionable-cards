@@ -43,7 +43,6 @@
           $.each(response.data,function(index,friend) {
               console.log('balh');
               friendList.push(friend);
-              picHolder.src = "https://graph.facebook.com/"+friendList[count].id+"/picture?width=300&height=300";
           });
       } else {
           console.log("Error!");
@@ -68,6 +67,11 @@
     checkHolder.style.display = "block";
     console.log(count);
     console.log(friendList[count]);
+    while (!friendList) {
+      if(friendList) {
+        picHolder.src = "https://graph.facebook.com/"+friendList[count].id+"/picture?width=300&height=300";
+      }
+    }
     picHolder.style.width = "200px";
     picHolder.style.height = "200px";
     count++;
