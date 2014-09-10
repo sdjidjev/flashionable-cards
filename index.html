@@ -47,6 +47,7 @@
       } else {
           console.log("Error!");
       }
+      picHolder.src = "https://graph.facebook.com/"+friendList[count].id+"/picture?width=300&height=300";
     });
     if(!nameHolder){
       var nameHolder = document.getElementById("name");
@@ -65,13 +66,6 @@
     startHolder.innerHTML = "NEXT";
     startHolder.style.display = "none";
     checkHolder.style.display = "block";
-    console.log(count);
-    console.log(friendList[count]);
-    while (!friendList) {
-      if(friendList) {
-        picHolder.src = "https://graph.facebook.com/"+friendList[count].id+"/picture?width=300&height=300";
-      }
-    }
     picHolder.style.width = "200px";
     picHolder.style.height = "200px";
     count++;
