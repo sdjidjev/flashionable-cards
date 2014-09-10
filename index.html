@@ -39,11 +39,13 @@
  
   function start() {
     FB.api('/me/friends', function(response) {
-      if(response.data) {
+      if(response.data && friendList.length == 0) {
           $.each(response.data,function(index,friend) {
-              console.log('balh');
               friendList.push(friend);
           });
+          shuffler(friendList);
+      } else if (friendList.length != 0){
+        
       } else {
           console.log("Error!");
       }
@@ -52,7 +54,6 @@
     if(!nameHolder){
       var nameHolder = document.getElementById("name");
       var picHolder = document.getElementById("pic");
-      shuffler(friendList);
     }
     var formHolder = document.getElementById("fForm");
 
