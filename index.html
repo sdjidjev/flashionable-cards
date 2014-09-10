@@ -26,6 +26,16 @@
         FB.login({scope: 'read_friendlists,friends_status'});
       }
     });
+    FB.api('/me/friends', function(response) {
+      if(response.data) {
+          $.each(response.data,function(index,friend) {
+              console.log('balh');
+              friendList.push(friend);
+          });
+      } else {
+          console.log("Error!");
+      }
+    });
   };
 
   // Load the SDK asynchronously
@@ -42,16 +52,6 @@
       var nameHolder = document.getElementById("name");
       var picHolder = document.getElementById("pic");
       shuffler(friendList);
-      FB.api('/me/friends', function(response) {
-          if(response.data) {
-              $.each(response.data,function(index,friend) {
-                  console.log('balh');
-                  friendList.push(friend);
-              });
-          } else {
-              console.log("Error!");
-          }
-      });
     }
     var formHolder = document.getElementById("fForm");
 
