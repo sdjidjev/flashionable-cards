@@ -12,19 +12,20 @@
   var friendList = new Array();
   var count = 1;
   window.fbAsyncInit = function() {
-  FB.init({
-    appId      : '1431720523708632',
-    status     : true, // check login status
-    cookie     : true, // enable cookies to allow the server to access the session
-    xfbml      : true  // parse XFBML
-  });
- 
-    if (response.status === 'connected') {
-    } else if (response.status === 'not_authorized') {
-      FB.login({scope: 'read_friendlists'});
-    } else {
-      FB.login({scope: 'read_friendlists'});
-    }
+    FB.init({
+      appId      : '1431720523708632',
+      status     : true, // check login status
+      cookie     : true, // enable cookies to allow the server to access the session
+      xfbml      : true  // parse XFBML
+    });
+    FB.Event.subscribe('auth.authResponseChange', function(response) {
+      if (response.status === 'connected') {
+      } else if (response.status === 'not_authorized') {
+        FB.login({scope: 'read_friendlists,friends_status'});
+      } else {
+        FB.login({scope: 'read_friendlists,friends_status'});
+      }
+    });
   };
 
   // Load the SDK asynchronously
@@ -64,6 +65,7 @@
     startHolder.style.display = "none";
     checkHolder.style.display = "block";
     console.log(count);
+    console.log(friendList[count]);
     picHolder.src = "https://graph.facebook.com/"+friendList[count].id+"/picture?width=300&height=300";
     picHolder.style.width = "200px";
     picHolder.style.height = "200px";
